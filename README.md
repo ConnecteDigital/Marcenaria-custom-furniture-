@@ -37,4 +37,6 @@ As fotos atuais são **imagens ilustrativas geradas por IA**. Para trocar por fo
 2. Apague o `.jpg` correspondente em `src/assets/fotos/` (senão a foto antiga continua).
 3. `npm run build` otimiza tudo sozinho (`scripts/fotos.mjs`).
 
+O logo original está em `logo/logo-original.webp`. O cabeçalho usa o desenho da casa recortado (`src/assets/logo-icone.png`) e o rodapé usa o logo inteiro (`src/assets/logo-completo.png`).
+
 Quando as fotos forem reais, tire o aviso "Imagens ilustrativas" em `src/pages/index.astro`.

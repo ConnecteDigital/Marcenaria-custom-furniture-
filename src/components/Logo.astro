@@ -1,12 +1,27 @@
 ---
-// Logotipo em texto até o cliente enviar o logo oficial.
+// "icone": desenho da casa + nome em texto (cabeçalho). "completo": logo inteiro (rodapé).
+import { Image } from 'astro:assets';
+import icone from '../assets/logo-icone.png';
+import completo from '../assets/logo-completo.png';
 import { site } from '../data/site';
+
+interface Props {
+  variant?: 'icone' | 'completo';
+}
+
+const { variant = 'icone' } = Astro.props;
 ---
 
-<span class="logo" aria-label={site.name}>
-  <svg class="logo-mark" width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
-    <rect x="1" y="1" width="38" height="38" rx="9" fill="currentColor" opacity=".14" />
-    <path d="M11 10h18v20H11z M20 10v20 M17 17v5 M23 17v5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" />
-  </svg>
-  <span class="logo-text"><small>Marcenaria</small>Custom Furniture</span>
-</span>
+{
+  variant === 'completo' ? (
+    <Image class="logo-completo" src={completo} alt={site.name} widths={[240, 480]} sizes="240px" />
+  ) : (
+    <span class="logo">
+      <Image class="logo-mark" src={icone} alt="" widths={[80, 160]} sizes="80px" loading="eager" />
+      <span class="logo-text">
+        <strong>Marcenaria</strong>
+        <span>Custom Furniture</span>
+      </span>
+    </span>
+  )
+}

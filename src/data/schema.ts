@@ -13,6 +13,7 @@ export function localBusinessSchema() {
     '@id': `${site.url}/#empresa`,
     name: site.name,
     url: site.url,
+    logo: `${site.url}/logo.png`,
     image: `${site.url}/og.jpg`,
     telephone: '+5562982038597',
     description: site.description,
