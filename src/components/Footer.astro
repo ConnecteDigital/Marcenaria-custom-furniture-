@@ -1,0 +1,34 @@
+---
+import Icon from './Icon.astro';
+import Logo from './Logo.astro';
+import { site, whatsappUrl } from '../data/site';
+import { servicos } from '../data/servicos';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer" id="contato">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <Logo />
+      <p>Móveis planejados, fabricação, conserto e manutenção de móveis. Do projeto à execução.</p>
+    </div>
+    <div>
+      <h2 class="footer-title">Serviços</h2>
+      <ul class="footer-links">
+        {servicos.map((s) => <li><a href="#servicos">{s.nome}</a></li>)}
+      </ul>
+    </div>
+    <div>
+      <h2 class="footer-title">Contato</h2>
+      <ul class="footer-contact">
+        <li><a href={whatsappUrl()} target="_blank" rel="noopener"><Icon name="whatsapp" size={18} /> WhatsApp {site.phoneDisplay}</a></li>
+        <li><a href={site.tel}><Icon name="phone" size={18} /> Ligar {site.phoneDisplay}</a></li>
+        <li><Icon name="pin" size={18} /> {site.city} e região</li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© {year} {site.name}. Todos os direitos reservados.</p>
+  </div>
+</footer>

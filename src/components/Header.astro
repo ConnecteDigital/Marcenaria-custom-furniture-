@@ -1,0 +1,48 @@
+---
+import Icon from './Icon.astro';
+import Logo from './Logo.astro';
+import { site, whatsappUrl } from '../data/site';
+
+const links = [
+  { href: '#servicos', label: 'Serviços' },
+  { href: '#ambientes', label: 'Ambientes' },
+  { href: '#como-trabalhamos', label: 'Como trabalhamos' },
+  { href: '#imobiliarias', label: 'Imobiliárias' },
+  { href: '#duvidas', label: 'Dúvidas' },
+];
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="#topo" class="brand" aria-label={`${site.name}, início da página`}><Logo /></a>
+
+    <nav class="nav-desktop" aria-label="Principal">
+      {links.map((l) => <a href={l.href}>{l.label}</a>)}
+    </nav>
+
+    <div class="header-cta">
+      <a class="header-phone" href={site.tel}><Icon name="phone" size={18} /> {site.phoneDisplay}</a>
+      <a class="btn btn-wa btn-sm" href={whatsappUrl()} target="_blank" rel="noopener">
+        <Icon name="whatsapp" size={18} /> <span>WhatsApp</span>
+      </a>
+      <details class="nav-mobile">
+        <summary aria-label="Abrir menu"><span></span><span></span><span></span></summary>
+        <nav aria-label="Menu">
+          {links.map((l) => <a href={l.href}>{l.label}</a>)}
+          <a href={site.tel}><Icon name="phone" size={18} /> Ligar: {site.phoneDisplay}</a>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Fecha o menu do celular ao tocar fora dele ou ao escolher um link.
+  const menu = document.querySelector<HTMLDetailsElement>('.nav-mobile');
+  if (menu) {
+    document.addEventListener('click', (e) => {
+      if (menu.open && !menu.contains(e.target as Node)) menu.open = false;
+    });
+    menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => (menu.open = false)));
+  }
+</script>
