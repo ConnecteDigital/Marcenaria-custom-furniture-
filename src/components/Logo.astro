@@ -1,8 +1,7 @@
 ---
-// "icone": desenho da casa + nome em texto (cabeçalho). "completo": logo inteiro (rodapé).
+// "icone": selo redondo + nome em texto (cabeçalho). "completo": só o selo, grande (rodapé).
 import { Image } from 'astro:assets';
-import icone from '../assets/logo-icone.png';
-import completo from '../assets/logo-completo.png';
+import logo from '../assets/logo.png';
 import { site } from '../data/site';
 
 interface Props {
@@ -14,10 +13,10 @@ const { variant = 'icone' } = Astro.props;
 
 {
   variant === 'completo' ? (
-    <Image class="logo-completo" src={completo} alt={site.name} widths={[240, 480]} sizes="240px" />
+    <Image class="logo-completo" src={logo} alt={site.name} widths={[200, 400]} sizes="200px" />
   ) : (
     <span class="logo">
-      <Image class="logo-mark" src={icone} alt="" widths={[80, 160]} sizes="80px" loading="eager" />
+      <Image class="logo-mark" src={logo} alt="" widths={[60, 120]} sizes="60px" loading="eager" />
       <span class="logo-text">
         <strong>Marcenaria</strong>
         <span>Custom Furniture</span>
