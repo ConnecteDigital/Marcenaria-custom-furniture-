@@ -62,7 +62,7 @@ const msgImobiliaria = servicos.find((s) => s.slug === 'manutencao-imobiliaria')
       <span class="eyebrow">Marcenaria em {site.city} e região</span>
       <h1>Móveis planejados sob medida, <em>do projeto à execução</em></h1>
       <p class="hero-lead">Projetamos, fabricamos, consertamos e fazemos a manutenção dos seus móveis.</p>
-      <CtaButtons />
+      <CtaButtons callRed />
       <ul class="hero-badges">
         <li><Icon name="ruler" size={22} /> <span>Projeto sob medida</span></li>
         <li><Icon name="saw" size={22} /> <span>Fabricação</span></li>
@@ -96,8 +96,8 @@ const msgImobiliaria = servicos.find((s) => s.slug === 'manutencao-imobiliaria')
                 <span class="service-icon"><Icon name={s.icon} size={26} /></span>
                 <h3>{s.nome}</h3>
                 <p>{s.resumo}</p>
-                <a class="service-more" href={whatsappUrl(s.mensagem)} target="_blank" rel="noopener">
-                  Pedir orçamento <Icon name="arrow" size={16} />
+                <a class="btn btn-wa btn-md service-cta" href={whatsappUrl(s.mensagem)} target="_blank" rel="noopener">
+                  <Icon name="whatsapp" size={20} /> Pedir orçamento
                 </a>
               </article>
             );

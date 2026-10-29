@@ -8,6 +8,8 @@
   --oak-300: #e7bf8c;
   --brand-dark: #2e1609;
   --brand-copper: #b8712f;
+  --red: #d92d20;
+  --red-hover: #b42318;
   --wa: #128c4a;
   --wa-hover: #0f7a40;
   --ink: #24180f;
@@ -84,6 +86,8 @@ p { margin: 0 0 1em; }
 .btn-call:hover { background: var(--bg-soft); }
 .hero .btn-call, .cta-band .btn-call { background: transparent; color: #fff; border-color: rgba(255, 255, 255, .8); }
 .hero .btn-call:hover, .cta-band .btn-call:hover { background: rgba(255, 255, 255, .1); }
+.btn-call.btn-red, .hero .btn-call.btn-red { background: var(--red); color: #fff; border-color: var(--red); box-shadow: 0 10px 24px -10px rgba(217, 45, 32, .8); }
+.btn-call.btn-red:hover, .hero .btn-call.btn-red:hover { background: var(--red-hover); border-color: var(--red-hover); }
 .cta-buttons { display: flex; flex-wrap: wrap; gap: 12px; }
 
 /* header */
@@ -196,8 +200,8 @@ body:has(.nav-mobile[open]) .float-cta { display: none; }
   width: 52px; height: 52px; display: grid; place-items: center; border-radius: 14px; margin-top: -26px; position: relative;
   background: linear-gradient(135deg, var(--oak-600), var(--oak-400)); color: #fff; box-shadow: 0 0 0 4px #fff;
 }
-.service-more { margin-top: 14px; color: var(--wa); font-weight: 700; display: inline-flex; gap: 6px; align-items: center; text-decoration: none; }
-.service-more:hover { text-decoration: underline; }
+.service-cta { margin-top: 18px; align-self: flex-start; }
+@media (max-width: 600px) { .service-cta { align-self: stretch; } }
 
 /* galeria */
 .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
@@ -278,13 +282,13 @@ body:has(.nav-mobile[open]) .float-cta { display: none; }
   animation: wa-pop 2.6s ease-in-out infinite;
 }
 .float-wa span, .float-call span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-.float-call { display: none; width: 52px; height: 52px; border-radius: 50%; background: var(--wood-800); box-shadow: var(--shadow); }
+.float-call { display: none; width: 52px; height: 52px; border-radius: 50%; background: var(--red); box-shadow: 0 12px 30px -8px rgba(217, 45, 32, .8); }
 @keyframes wa-pop { 0%, 85%, 100% { transform: scale(1); } 90% { transform: scale(1.1); } 95% { transform: scale(.97); } }
 @media (max-width: 700px) {
   .float-cta { left: 12px; right: 12px; bottom: 12px; }
   .float-wa, .float-call { flex: 1; height: 54px; border-radius: 999px; gap: 8px; font: 700 1.05rem/1 var(--font-body); animation: none; }
   .float-wa span, .float-call span { position: static; width: auto; height: auto; overflow: visible; clip: auto; }
-  .float-call { display: inline-flex; border: 1px solid rgba(255, 255, 255, .2); }
+  .float-call { display: inline-flex; }
 }
 
 @media (prefers-reduced-motion: reduce) {
